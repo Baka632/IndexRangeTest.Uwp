@@ -36,6 +36,7 @@ namespace IndexRangeTest.Uwp
         {
             get
             {
+                // We can't define GetSubArray<T> in UWP projects, use Span<T> instead
                 return array.AsSpan()[2..].ToArray();
             }
         }
