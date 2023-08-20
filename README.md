@@ -14,3 +14,5 @@ This is a sample project for using IndexRange in UWP (even in Windows 10 Mobile)
 ```
 
 Note: make sure you don't use apis/libraries that don't support your system version.
+
+By doing these steps, these problems can't be warned in compile-time.
