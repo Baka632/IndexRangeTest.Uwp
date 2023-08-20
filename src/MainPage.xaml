@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="IndexRangeTest.Uwp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:IndexRangeTest.Uwp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel
+            Margin="10,0,10,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="Original data" />
+                <GridView ItemsSource="{x:Bind array}">
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="0,5,5,0" />
+                            <Setter Property="BorderBrush" Value="Gray" />
+                            <Setter Property="BorderThickness" Value="1" />
+                        </Style>
+                    </GridView.ItemContainerStyle>
+                </GridView>
+
+                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="Array slice (array[2..])" />
+                <GridView ItemsSource="{x:Bind SlicedArray}">
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="0,5,5,0" />
+                            <Setter Property="BorderBrush" Value="Gray" />
+                            <Setter Property="BorderThickness" Value="1" />
+                        </Style>
+                    </GridView.ItemContainerStyle>
+                </GridView>
+                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="Last element of array (array[^1])" />
+                <TextBlock Foreground="DarkGray" Text="{x:Bind LastElementInArray}" />
+            </StackPanel>
+
+            <StackPanel
+                Margin="0,10,0,10"
+                HorizontalAlignment="Stretch"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                Orientation="Horizontal" />
+
+            <StackPanel>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="Original string" />
+                    <TextBlock
+                        Foreground="DarkGray"
+                        Text="{x:Bind originalString}"
+                        TextWrapping="WrapWholeWords" />
+                </StackPanel>
+
+                <StackPanel Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="Last sentence of string (originalString[^54..])" />
+                    <TextBlock
+                        Foreground="DarkGray"
+                        Text="{x:Bind LastSentenceOfString}"
+                        TextWrapping="WrapWholeWords" />
+                </StackPanel>
+
+                <StackPanel Margin="0,5,0,0">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="Range test (originalString[124..206])" />
+                    <TextBlock
+                        Foreground="DarkGray"
+                        Text="{x:Bind RepersentOfString}"
+                        TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
